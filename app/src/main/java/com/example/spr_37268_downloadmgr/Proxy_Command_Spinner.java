@@ -2,7 +2,6 @@ package com.example.spr_37268_downloadmgr;
 
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 
 public class Proxy_Command_Spinner implements AdapterView.OnItemSelectedListener
 {
@@ -17,6 +16,12 @@ public class Proxy_Command_Spinner implements AdapterView.OnItemSelectedListener
     {
         Proxy item = (Proxy)parent.getItemAtPosition(pos);
         m_form.SetSelectedProxyCommand(item);
+        if (pos == 1) {
+            m_form.findViewById(R.id.checkBox).setEnabled(true);
+        }
+        else{
+            m_form.findViewById(R.id.checkBox).setEnabled(false);
+        }
     }
 
     @Override

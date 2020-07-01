@@ -29,6 +29,15 @@
             android:text="GO"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Proxy"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        />
+
     </LinearLayout>
 
 
@@ -42,13 +51,13 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent">
 
-    <TextView
-        android:id="@+id/textView_status"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:text="------------------------- STATUS(v6) -------------------------" />
+        <TextView
+            android:id="@+id/textView_status"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="------------------------- STATUS(v6) -------------------------" />
 
     </ScrollView>
 

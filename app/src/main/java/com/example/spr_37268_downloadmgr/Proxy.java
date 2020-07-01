@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 
 import java.io.File;
@@ -643,9 +644,17 @@ public class Proxy
         }
     }
 
-    OkHttpClient client = new OkHttpClient.Builder().proxy(mProxy).build();
+
 
     public <T> T createService(Class<T> serviceClass, String baseUrl) {
+        OkHttpClient client;
+        final CheckBox checkBox = (CheckBox) m_form.findViewById(R.id.checkBox);
+        if (checkBox.isChecked()){
+            client = new OkHttpClient.Builder().proxy(mProxy).build();
+        }
+        else{
+            client = new OkHttpClient.Builder().build();
+        }
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(client)

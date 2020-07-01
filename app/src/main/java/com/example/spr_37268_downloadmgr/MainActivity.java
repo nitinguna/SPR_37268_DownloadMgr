@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView status_textview;
     private Spinner choice_spinner;
     private Button action_button;
+    private CheckBox proxyCheck;
     private ImageView jpg_image;
     private ArrayAdapter<Proxy> mSpinnerAdapter;
     private Proxy proxy_cmd = null;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         choice_spinner = (Spinner) findViewById(R.id.spinner1);
         jpg_image = (ImageView)findViewById(R.id.imageView);
         ((Button)findViewById(R.id.button_action)).setOnClickListener(btnClick);
+        proxyCheck = findViewById(R.id.checkBox);
 
         mSpinnerAdapter = new ArrayAdapter<Proxy>(this, android.R.layout.simple_spinner_item);
         mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mSpinnerAdapter.add(new Proxy(this, Proxy.COMMAND.DOWNLOAD_MGR));
         mSpinnerAdapter.add(new Proxy(this, Proxy.COMMAND.PROXY_DIRECT));
         choice_spinner.setSelection(0);
+        proxyCheck.setEnabled(false);
 
         int pos = choice_spinner.getSelectedItemPosition();
         if (pos >= 0)
